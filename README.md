@@ -11,7 +11,7 @@ Team members:
 Our text-based game is a single-player game called Survival Island. The primary actions of the player are to gather Food and Wood. The victory condition of this game is to leave the Island.
 
 ### Background 
-The player is stranded on a deserted island. To survive, the player needs to find Food on the island; to win the game, the player needs to gather enough Wood to make a SOS signal large enough so that the player can be seen and rescued by ships passing nearby. 
+The player is stranded on a deserted island. To survive, the player needs to find Food on the island; to win the game, the player needs to gather enough Wood and burn it to produce dense somke which generates a distress signal. Burning more wood will produce a higher concentration of dense somke. The more obvious distress signal can make it easier for the player to be seen and rescued by ships passing nearby. 
 
 
 ## Rules
