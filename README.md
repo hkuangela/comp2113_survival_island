@@ -1,5 +1,5 @@
 # comp2113-survival_island
-Project of COMP2113
+This is the Project of COMP2113. This file contains team information, game description, game rules and game features. 
 
 ## Team Information
 
