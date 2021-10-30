@@ -1,4 +1,4 @@
-# comp2113-Survival_Island
+# comp2113-survival_island
 Project of COMP2113
 
 ## Team Information
