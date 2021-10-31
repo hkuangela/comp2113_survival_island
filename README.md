@@ -7,18 +7,18 @@ Team members:
 1. Chow Cheuk Ying | UID: 3035565140  | BEng(CivE) Year 4
 2. Cheung Wang     | UID: 3035570949  | BEng(CivE) Year 4
 
-## Description
+## 1. Description
 Our text-based game is a single-player game called *Survival Island*. The primary actions of the player are to *Gather* *Food* and *Wood*. The player wins the game by successfully leaving the Island. 
 
-### Background 
+### 1.1. Background 
 The player is stranded on a deserted island. To survive, the player needs to find *Food* on the island; to win the game, the player needs to *gather* enough *Wood* and *Burn* them to produce smoke which acts as a distress signal. The more the *Wood* *burn*t, the higher the smoke reaches, and thus the larger the probability is for the player to be seen and rescued by ships passing nearby. 
 
-## General game mechanism
+## 2. General game mechanism
 When the game starts, the player is at *Home* and has 100/100 *Stamina* and 50 *Food* units. A 2-D map showing the player’s position and the locations *Food* and *Wood* on the island are displayed, while the amounts are only shown when the player reaches their locations. The player can *Navigate* through the map to nodes with *Food* and *Wood* to *Gather* these resources. The player can then bring the *Gather*ed resources back *Home*. With each trip, the player can only carry a certain amount of resources. To  increase the amount of resources that can be carried per trip, the player can *Build* wooden *Boxes*. The player can also *Make* *Axes* and spend them to multiply resources when *Gather*ing them. 
 
 When the accumulated amount of *Wood* reaches a threshold, the player can start *Build*ing a distress signal by *Burn*ing *Wood*. To replenish the resources on the map and the player’s *Stamina*, the player can donate 20 *Food* to refresh the map, which is equivalent to getting sleep and starting a new day, such that new amounts of resources are generated at each resource node. 
 
-### Rules
+### 2.1. Rules
 1. The maximum *Stamina* is 100. When *Stamina* is smaller or equal to 0. The player loses and the game ends. 
 2. All actions, including *Navigate*, *Gather* and *Burn* all consumes *Stamina*. *Eat*ing *Food* increases *Stamina*. 
 3. The amount of *Food* and *Wood* is only shown when the player reaches the node. 
@@ -32,7 +32,7 @@ When the accumulated amount of *Wood* reaches a threshold, the player can start 
 11. The amounts of *Food* and *Wood* at each node can be *Refresh*ed by donating 20 *Food*. 
 12. The player can only *Build* *Box*es and *Axe*s and *Burn* *Wood* when the player is at *Home*.  *Navigate*, *Eat*, *Gather* can be done at all nodes. 
 
-### Exchange rates
+### 2.2. Exchange rates
 1. 1 *Stamina* = 1 *Food* 
 2. 1 (*Stamina* consumed) = 2 * (length of path)
 3. 1 wooden *Box* = [50 + 50 * (number of wooden *Box* the player has)] *Wood* 
@@ -40,7 +40,7 @@ When the accumulated amount of *Wood* reaches a threshold, the player can start 
 5. 1 *Refresh* = 20 *Food*
 
 
-### Details of actions available for the player
+### 2.3. Details of actions available for the player
 
 1. *Navigate*: 
 A certain amount of *Stamina* is consumed when the player *Navigate*s around the Island. The amount consumed is proportional to the length of the path. The *Stamina* consumed is given by the following equation. 
@@ -70,10 +70,10 @@ The player can use *Wood* to *Build* *Axe*s. *Build*ing each marginal *Axe* requ
 The player can *Burn* *Wood* to produce a distress signal. A boolean variable stores a value that indicates whether the player is successfully rescued or not. 
 
 
-## Features
+## 3. Features
 Features 1-5 are described below. 
 
-### 1. Generation of random game events
+### 3.1. Generation of random game events
 There are three major randomly generated elements involved in this game. 
 
 First of all, the locations of the *Food* and *Wood* are randomly generated for every new game. Therefore, the paths will be randomly generated to connect *Home* and the location of the resources.  
@@ -87,7 +87,7 @@ The mechanism for determining whether the player is rescued is as follows. The p
 The computer will randomly draw an integer twice within the same range. The two numbers are then stored in an integer array. If the two randomly generated numbers are the same, the player is rescued. 
 
 
-### 2. Data structures for storing game status
+### 3.2. Data structures for storing game status
 
 #### A. Deserted Island Map
 
@@ -122,7 +122,7 @@ Players can make *Box*es to increase the total capacity they carry. It will mult
 The heights of the distress signal are recorded and stored in a dynamic 1-D double array. 
 
 
-### 3. Dynamic memory management
+### 3.3. Dynamic memory management
 Most variables and arrays used are stored as static memory. The list of static variables are as follows: 
 List of variables stored as static memory:
 1. Map
@@ -138,11 +138,11 @@ List of variables stored as static memory:
 Only one array is stored as dynamic memory. The heights of the distress signal are stored in a 1-D double array. 
 
 
-### 4. File input/output
+### 3.4. File input/output
 Only one file with the player's progress is stored, changed and read by the program. The game_saving.txt file is used to save the player’s status, the map (including the paths and locations of resources) and the amount of resources at each location. The progress is saved every time the player exits the game. The player can return to the saved progress when the player continues the game. The file game_saving.txt will be read if the player chooses to continue his/her progress. The original progress will be overwritten when the player saves a new progress. 
 
 
-### 5. Program codes in multiple files
+### 3.5. Program codes in multiple files
 
 1. initiate_map: Locations of *Food* and *Wood*, amounts of *Food* and *Wood*, and paths are generated. 
 2. walk: It moves the location of the player from one point to another.
