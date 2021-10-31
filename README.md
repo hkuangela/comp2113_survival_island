@@ -39,12 +39,56 @@ The player can only *Build* *Box*es and *Axe*s and *Burn* *Wood* when the player
 1 *Refresh* = 20 *Food*
 
 
+### Details of actions available for the player
+
+*Navigate*: 
+A certain amount of *Stamina* is consumed when the player *Navigate*s around the Island. The amount consumed is proportional to the length of the path. The *Stamina* consumed is given by the following equation. 
+> (*Stamina* consumed) = 2 /* (total length of path)
+
+*Gather*:
+A certain amount of *Stamina* is used when *Gather*ing the *Food* and *Wood*. The amounts of *Food* and *Wood* *Gather*ed are stored in two integer variables respectively. 
+
+On the other hand, the farther the location of resource away from *Home* is higher opportunity to *Gather* more resources. As luck is a part of *Gather*ing resources, the maximum *Gather*ing multiplied by a random number is drawn. Moverover, the axe can be used to *Gather* more resources at each time and is given by the following equation.
+> The maximum *Gathering* = (the amount of the *Food* and *Wood*) /* (1 + (number of axe) / 10) + (total distance between *Home* and location) /* (random number)
+
+*Refresh*
+The player can donate 20 *Food* to refresh the map and store it as an integer variable. 
+
+*Build box*
+The player can use *Wood* to upgrade the level of the *Box*. The higher level of the *Box* requires more *Wood*. The *Wood* required to upgrade the *Box* of different levels stored as an integer variable and is given by the following equation.
+> Amount of *Wood* required = 50 + 50 /* (number of *Box*es the player has)
+
+*Build axe*
+The player can use *Wood* to *Build* *Axe*s. *Build*ing each marginal *Axe* requires more *Wood*. The amount of *Wood* required to *build* each marginal *Axe* are calculated by the following equation.
+> Amount of *Wood* required = 30 + 30 /* (number of *Axe*s the player has)
+
+*Use axe*
+*Axe*s can only be used once. The number of *Axe*s stored as integer variable and used will be subtracted from the user’s storage once they are used.  
+
+Burn
+The player can *Burn* *Wood* to produce a distress signal. A boolean variable stores a value that indicates whether the player is successfully rescued or not. 
+
 
 ## Features
+### 1. Generation of random game events
+There are three major randomly generated elements involved in this game. 
+First of all, the locations of the *Food* and *Wood* are randomly generated for every new game. Therefore, the paths will be randomly generated to connect *Home* and the location of the resources.  
+Second, the amounts of *Food* and *Wood* at each location are randomly generated every time the map refreshes.
+Third, the chance of being rescued is random to a certain extent. The probability of the smoke being noticed by ships passing nearby is dependent on the height of the smoke (with a larger smoke height having a larger possibility), but a certain level of randomness is present when determining whether the smoke is noticed. 
+The mechanism for determining whether the player is rescued is as follows. The player is rescued if the two randomly generated numbers are the same. The range of numbers of which the two random integer reside in differs with the amount of *Wood* *Burn*t. The larger the amount of *Wood* used, the higher the smoke, the smaller the range. The smaller the range, the larger the probability for the two integers to be equal. This means *Burn*ing more *Wood* results in a larger probability to be rescued. The range of randomly generated values can be determined by following the equation. 
+>  (Range of values) = 1000 - 10 /* amount of *Wood* *Burn*t
+
+The computer will randomly draw an integer twice within the same range. The two numbers are then stored in an integer array. If the two randomly generated numbers are the same, the player is rescued. 
 
 
+### 2. Data structures for storing game status
 
+#### A. Deserted Island Map
 
+All locations and marks on the desert island map are stored in a 2D character array. The path is indicated with “-” and “l”; the location of *Home*, *Food* and *Wood* are represented by “H”, "F" and "W'' respectively. This information is stored in a 2-D character array.
+
+#### B. Amount of resources
+The quantities of *Food* and *Wood* at each location is randomly selected within the range 5-30. When the map is refreshed, the amount of *Food* and *Wood* in each location will be randomly generated again. The quantities are stored in a 2D array, where the rows and columns gives the location of the *Food* or *Wood* and the numbers stored in each cell represents the amount of *Food* or *Wood* present at that particular location. 
 
 
 ### 5. Program codes in multiple files
