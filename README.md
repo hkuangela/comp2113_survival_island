@@ -70,6 +70,8 @@ The player can *Burn* *Wood* to produce a distress signal. A boolean variable st
 
 
 ## Features
+Features 1-5 are described below. 
+
 ### 1. Generation of random game events
 There are three major randomly generated elements involved in this game. 
 First of all, the locations of the *Food* and *Wood* are randomly generated for every new game. Therefore, the paths will be randomly generated to connect *Home* and the location of the resources.  
@@ -92,20 +94,32 @@ The quantities of *Food* and *Wood* at each location is randomly selected within
 
 #### C. Player's status
 1. Base storage capacity of resources
+
 Storage capacity of *Food* and *Wood* at *Home* is fixed. Base storage capacity of *Food* and *Wood* during a trip is fixed. The quantities are stored in two 1D integer arrays. 
+
 2. *Stamina*
+
 The player's *Stamina* value ranges from 0 to 100. It is stored in an integer variable.
+
 3. Number of *Axe*s
+
 Players can make *Axe*s to multiply the amount of *Wood* and *Food* collected each time. The number of the *Axe*s ranges from 0 to 10 and is stored in an integer variable. 
+
 4. Number of *Box*es
+
 Players can make *Box*es to increase the total capacity they carry. It will multiply the 1D integer array storing the base storage capacity of the player during a trip. The number of the wooden *Box* ranges from 0 to 10 and is stored in an integer variable. 
+
 5. Location of player
+
 "\*" represents the current player's position. It is stored in a 1-D integer array; the first integer represents the row, the second number represents the column. 
-7. Records of the height of the distress signal
-The tallest 20 heights of the distress signal are recorded and stored in a 1-D double array. 
+
+6. Records of the height of the distress signal
+
+The heights of the distress signal are recorded and stored in a dynamic 1-D double array. 
+
 
 ### 3. Dynamic memory management
-All variables and arrays used are stored as static memory. No dynamic memory is used in this program. The list of variables are as follows: 
+Most variables and arrays used are stored as static memory. The list of static variables are as follows: 
 List of variables stored as static memory:
 1. Map
 2. Stamina
@@ -117,6 +131,8 @@ List of variables stored as static memory:
 8. Storage capacity at home
 9. Storage capacity during a trip
 10. Player’s status
+
+Only one array is stored as dynamic memory. The heights of the distress signal are stored in a 1-D double array. 
 
 
 ### 4. File input/output
