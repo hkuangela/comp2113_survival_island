@@ -91,6 +91,23 @@ All locations and marks on the desert island map are stored in a 2D character ar
 The quantities of *Food* and *Wood* at each location is randomly selected within the range 5-30. When the map is refreshed, the amount of *Food* and *Wood* in each location will be randomly generated again. The quantities are stored in a 2D array, where the rows and columns gives the location of the *Food* or *Wood* and the numbers stored in each cell represents the amount of *Food* or *Wood* present at that particular location. 
 
 
+
+#### C. Player's status
+Base storage capacity of resources: Storage capacity of *Food* and *Wood* at *Home* is fixed. Base storage capacity of *Food* and *Wood* during a trip is fixed. The quantities are stored in two 1D integer arrays. 
+
+*Stamina*: The player's *Stamina* value ranges from 0 to 100. It is stored in an integer variable.
+
+Number of *Axe*s:  Players can make *Axe*s to multiply the amount of *Wood* and *Food* collected each time. The number of the *Axe*s ranges from 0 to 10 and is stored in an integer variable. 
+
+Number of *Box*es:  Players can make *Box*es to increase the total capacity they carry. It will multiply the 1D integer array storing the base storage capacity of the player during a trip. The number of the wooden *Box* ranges from 0 to 10 and is stored in an integer variable. 
+
+Location of player
+"*" represents the current player's position. It is stored in a 1-D integer array; the first integer represents the row, the second number represents the column. 
+
+Records of the height of the distress signal
+The tallest 20 heights of the distress signal are recorded and stored in a 1-D double array. 
+
+
 ### 5. Program codes in multiple files
 
 initiate_map: Locations of *Food* and *Wood*, amounts of *Food* and *Wood*, and paths are generated. 
