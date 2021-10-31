@@ -91,12 +91,17 @@ All locations and marks on the desert island map are stored in a 2D character ar
 The quantities of *Food* and *Wood* at each location is randomly selected within the range 5-30. When the map is refreshed, the amount of *Food* and *Wood* in each location will be randomly generated again. The quantities are stored in a 2D array, where the rows and columns gives the location of the *Food* or *Wood* and the numbers stored in each cell represents the amount of *Food* or *Wood* present at that particular location. 
 
 #### C. Player's status
-1. Base storage capacity of resources: Storage capacity of *Food* and *Wood* at *Home* is fixed. Base storage capacity of *Food* and *Wood* during a trip is fixed. The quantities are stored in two 1D integer arrays. 
-2. *Stamina*: The player's *Stamina* value ranges from 0 to 100. It is stored in an integer variable.
-3. Number of *Axe*s:  Players can make *Axe*s to multiply the amount of *Wood* and *Food* collected each time. The number of the *Axe*s ranges from 0 to 10 and is stored in an integer variable. 
-4. Number of *Box*es:  Players can make *Box*es to increase the total capacity they carry. It will multiply the 1D integer array storing the base storage capacity of the player during a trip. The number of the wooden *Box* ranges from 0 to 10 and is stored in an integer variable. 
-5. Location of player: "\*" represents the current player's position. It is stored in a 1-D integer array; the first integer represents the row, the second number represents the column. 
-6. Records of the height of the distress signal
+1. Base storage capacity of resources
+Storage capacity of *Food* and *Wood* at *Home* is fixed. Base storage capacity of *Food* and *Wood* during a trip is fixed. The quantities are stored in two 1D integer arrays. 
+2. *Stamina*
+The player's *Stamina* value ranges from 0 to 100. It is stored in an integer variable.
+3. Number of *Axe*s
+Players can make *Axe*s to multiply the amount of *Wood* and *Food* collected each time. The number of the *Axe*s ranges from 0 to 10 and is stored in an integer variable. 
+4. Number of *Box*es
+Players can make *Box*es to increase the total capacity they carry. It will multiply the 1D integer array storing the base storage capacity of the player during a trip. The number of the wooden *Box* ranges from 0 to 10 and is stored in an integer variable. 
+5. Location of player
+"\*" represents the current player's position. It is stored in a 1-D integer array; the first integer represents the row, the second number represents the column. 
+7. Records of the height of the distress signal
 The tallest 20 heights of the distress signal are recorded and stored in a 1-D double array. 
 
 ### 3. Dynamic memory management
@@ -121,10 +126,10 @@ Only one file with the player's progress is stored, changed and read by the prog
 ### 5. Program codes in multiple files
 
 1. initiate_map: Locations of *Food* and *Wood*, amounts of *Food* and *Wood*, and paths are generated. 
-2. walk: move the location of the player from one point to another
+2. walk: It moves the location of the player from one point to another.
 3. gather: It subtracts the amount of *Food* and *Wood* collected at each node. It also prompts the player to use *Axe*s can call the use_axe function below.
-4. refresh: amounts of *Food* and *Wood* at each node is generated 
-5. build_box: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Box*es the player has
-6. build_axe: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Axe*s the player has
-7. use_axe: It subtracts an amount of *Axe*s from the player’s *Axe*s storage and multiplies the amount of *Food* and *Wood* collected
-8. burn_wood: It subtract an amount of *Wood* from the player’s storage and increases the height of the smoke
+4. refresh: Amounts of *Food* and *Wood* at each node are generated. 
+5. build_box: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Box*es the player has. 
+6. build_axe: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Axe*s the player has. 
+7. use_axe: It subtracts an amount of *Axe*s from the player’s *Axe*s storage and multiplies the amount of *Food* and *Wood* collected. 
+8. burn_wood: It subtract an amount of *Wood* from the player’s storage and increases the height of the smoke. 
