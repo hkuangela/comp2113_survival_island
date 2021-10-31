@@ -15,6 +15,7 @@ The player is stranded on a deserted island. To survive, the player needs to fin
 
 ## General game mechanism
 When the game starts, the player is at *Home* and has 100/100 *Stamina* and 50 *Food* units. A 2-D map showing the player’s position and the locations *Food* and *Wood* on the island are displayed, while the amounts are only shown when the player reaches their locations. The player can *Navigate* through the map to nodes with *Food* and *Wood* to *Gather* these resources. The player can then bring the *Gather*ed resources back *Home*. With each trip, the player can only carry a certain amount of resources. To  increase the amount of resources that can be carried per trip, the player can *Build* wooden *Boxes*. The player can also *Make* *Axes* and spend them to multiply resources when *Gather*ing them. 
+
 When the accumulated amount of *Wood* reaches a threshold, the player can start *Build*ing a distress signal by *Burn*ing *Wood*. To replenish the resources on the map and the player’s *Stamina*, the player can donate 20 *Food* to refresh the map, which is equivalent to getting sleep and starting a new day, such that new amounts of resources are generated at each resource node. 
 
 ### Rules
@@ -74,9 +75,12 @@ Features 1-5 are described below.
 
 ### 1. Generation of random game events
 There are three major randomly generated elements involved in this game. 
+
 First of all, the locations of the *Food* and *Wood* are randomly generated for every new game. Therefore, the paths will be randomly generated to connect *Home* and the location of the resources.  
+
 Second, the amounts of *Food* and *Wood* at each location are randomly generated every time the map refreshes.
 Third, the chance of being rescued is random to a certain extent. The probability of the smoke being noticed by ships passing nearby is dependent on the height of the smoke (with a larger smoke height having a larger possibility), but a certain level of randomness is present when determining whether the smoke is noticed. 
+
 The mechanism for determining whether the player is rescued is as follows. The player is rescued if the two randomly generated numbers are the same. The range of numbers of which the two random integer reside in differs with the amount of *Wood* *Burn*t. The larger the amount of *Wood* used, the higher the smoke, the smaller the range. The smaller the range, the larger the probability for the two integers to be equal. This means *Burn*ing more *Wood* results in a larger probability to be rescued. The range of randomly generated values can be determined by following the equation. 
 >  (Range of values) = 1000 - 10 * amount of *Wood* *Burn*t
 
