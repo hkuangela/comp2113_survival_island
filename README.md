@@ -151,4 +151,4 @@ Only one file with the player's progress is stored, changed and read by the prog
 5. build_box: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Box*es the player has. 
 6. build_axe: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Axe*s the player has. 
 7. use_axe: It subtracts an amount of *Axe*s from the player’s *Axe*s storage and multiplies the amount of *Food* and *Wood* collected. 
-8. burn_wood: It subtract an amount of *Wood* from the player’s storage and increases the height of the smoke. 
+8. burn_wood: It subtracts an amount of *Wood* from the player’s storage and increases the height of the smoke. 
