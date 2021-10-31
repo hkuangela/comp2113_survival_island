@@ -134,7 +134,6 @@ List of variables stored as static memory:
 7. The height of distress signal
 8. Storage capacity at home
 9. Storage capacity during a trip
-10. Player’s status
 
 Only one array is stored as dynamic memory. The heights of the distress signal are stored in a 1-D double array. 
 
