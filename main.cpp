@@ -15,4 +15,7 @@ struct map{
 
 int main(){
   string input;
+  cin >> input;
+  switch (input){
+      case 
 }
