@@ -6,7 +6,7 @@
 #include <cstdlib>
 using namespace std;
 
-const int MAPSIZE = 4;
+const int MAPSIZE = 10;
 const int MAX_Stamina = 100;
 const int wood2box = 50;
 const int wood2axe = 30;
@@ -27,9 +27,9 @@ void default_strength(strength *&s){
 }
 void generate_map(map *&a){
 	int type;
-	for (int i=0;i<MAPSIZE;i++){
-		for (int j=0;j<MAPSIZE;j++){
-			type = rand()%5;
+	for (int i=1;i<MAPSIZE;i++){
+		for (int j=1;j<MAPSIZE;j++){
+			type = rand()%20;
 			switch (type){
 				case 1: a[i*MAPSIZE+j].resources='W';
 				        a[i*MAPSIZE+j].resources_amount=(rand()%100+1);
