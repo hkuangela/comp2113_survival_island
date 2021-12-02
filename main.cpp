@@ -17,10 +17,11 @@ const int wood2box = 50;
 const int wood2axe = 30;
 // location of player
 //int loc_x, loc_y = 0;
-struct map{
+struct map
+{
 //  char path = 0;
-  char resources =0;
-  int resources_amount = 0;
+	char resources =0;
+	int resources_amount = 0;
 
 };
 struct strength{
