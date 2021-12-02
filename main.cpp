@@ -214,7 +214,7 @@ void display_introduction (bool &newgame){
   cout << "Tip: There are three level of probability of rescue." << endl;
   cout << "High: woods > 5000, Medium: 1000 < woods <=5000, low: 1000 <=woods" << endl;
   cout << "You can refresh the map by paying 20 Food" << endl;
-  cout << "You can obtain help by iuput '?'" << endl;  
+  cout << "You can iuput '?' to obtain the command list" << endl;
   cout << "Good Luck!!!" << endl;
   cout << setfill('=') << setw(70) << "=" << endl;
   cout << setfill(' ');
@@ -270,7 +270,9 @@ if (newgame){
 	  			break;
 	  case '?': display_help();
 	            break;
-	  default:  break;
+	  default:
+        	cout << "Please type valid command. The command list can be displayed through input '?'" << endl;		    
+		    break;
     } // case loop
     if (status->Stamina <=0){
     	quit=true;
