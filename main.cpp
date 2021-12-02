@@ -4,8 +4,11 @@
 #include <cstring>
 #include <ctime>
 #include <cstdlib>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
+const int filenamesize=80;
 const int MAPSIZE = 10;
 const int MAX_Stamina = 100;
 const int wood2box = 50;
@@ -209,10 +212,78 @@ void display_help(){
 	cout << "w ... burn wood" << endl;
 	cout << "e ... eat food" << endl;
 	cout << "r ... refresh map" << endl;
+	cout << "i ... input file" << endl;
+	cout << "s ... save to file" << endl;
 	cout << "q ... quit" << endl;
 	cout << setfill('=') << setw(70) << "=" << endl;
 	cout << setfill(' ');	
 }
+void save2file(string &ofile,map *&node, strength *&status){
+	ofstream fout;
+	fout.open(ofile,ios::ate);
+	if (fout.fail()){
+		cout << "Error in opening " << ofile << endl;
+	} else {
+	
+	  fout<<status->Box<<" "<<status->Axe<<" "<<status->Wood<<" "<<status->Food<<" "<<status->Stamina<<" "<<status->Smoke<<" "<<status->loc_x<<" "<<status->loc_y<<endl;
+      for (int i=0;i<MAPSIZE;i++){
+		for (int j=0;j<MAPSIZE;j++){
+			node[i*MAPSIZE+j].resources == ' ' ? fout << "* " : fout << node[i*MAPSIZE+j].resources << " ";
+		}
+		fout << endl;
+	  }
+	  for (int i=0;i<MAPSIZE;i++){
+		for (int j=0;j<MAPSIZE;j++){
+			fout << node[i*MAPSIZE+j].resources_amount << " " ;
+		}
+		fout << endl;
+	  }
+	  cout << "... " << ofile << " is saved. " << endl;
+	  fout.close();
+    }
+    ofile.clear();
+}
+void get_file(string &filename){
+	string temp;
+	cout << "Enter filename: " ;
+	cin >> temp;
+	filename = temp + ".txt";
+	//cout << "Data will be saved to " << ofile << endl;
+}
+void file2map(string &ifile,map *&node, strength *&status){
+    string line;
+    char tempchar;
+	ifstream fin;
+	fin.open(ifile);
+    if (fin.fail()) {
+       cout << "Error in opening " << ifile << endl;
+	} else {
+		getline(fin, line);
+		istringstream sdata(line);
+		//Box,Axe,Wood,Food,Stamina,Smoke,loc_x,loc_y=0;
+		sdata>>status->Box>>status->Axe>>status->Wood>>status->Food>>status->Stamina>>status->Smoke>>status->loc_x>>status->loc_y;
+		for (int i=0; i<MAPSIZE;i++){
+            getline(fin, line);
+			istringstream sdata(line);
+			for (int j=0;j<MAPSIZE;j++){
+			    sdata>>tempchar;
+				tempchar =='*' ? node[i*MAPSIZE+j].resources = ' ' :  node[i*MAPSIZE+j].resources = tempchar ;
+ 		    }
+		}
+		for (int i=0; i<MAPSIZE;i++){
+			getline(fin, line);
+			istringstream sdata(line);
+			for (int j=0;j<MAPSIZE;j++){
+			    sdata>>node[i*MAPSIZE+j].resources_amount;
+		    }
+		}
+		fin.close();
+	}
+	ifile.clear();
+}
+
+
+
 
 void display_introduction (bool &newgame){
   cout << endl;
@@ -245,6 +316,7 @@ int main(){
   bool input_correct_command = true;
   char input;
   int temp, required;
+  string ifile,ofile,line;
   generate_map(node);
   default_strength(status);
 if (newgame){
@@ -278,6 +350,18 @@ if (newgame){
 	  case 'r' : // refresh_map
 	            refresh_map(status, node);
 	  			break;
+	  case 's' : // save to a file
+	            if(ofile.length()){
+	            	save2file(ofile,node,status);
+				} else {
+					get_file(ofile);
+					save2file(ofile,node,status);
+				}
+				break;
+	  case 'i' : // input file
+	            get_file(ifile);
+	            file2map(ifile,node,status);
+	            break;
 	  case 'q' : // quit
 	  			quit=true;	  			
 	  			break;
