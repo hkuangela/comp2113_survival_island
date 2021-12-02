@@ -28,10 +28,13 @@ struct strength{
 void default_strength(strength *&s){
 	s->Food=100; s->Stamina=100; s->Wood=100;s->loc_x=s->loc_y=0;
 }
+
+/*
 void generate_map(map *&a){
 	int type;
 	for (int i=1;i<MAPSIZE;i++){
 		for (int j=1;j<MAPSIZE;j++){
+			srand(time(NULL));    //ADDED
 			type = rand()%20;
 			switch (type){
 				case 1: a[i*MAPSIZE+j].resources='W';
@@ -51,6 +54,9 @@ void generate_map(map *&a){
 	a[0].resources_amount=0;
 	
 }
+*/
+
+/*
 void build_box(strength *&status){
 	if (status->loc_x == 0 && status->loc_y == 0){ 
         if (status->Wood < (wood2box + wood2box*status->Box)){
@@ -63,6 +69,9 @@ void build_box(strength *&status){
        	cout << "Not at Home !!! " << endl;
     }
 }
+*/
+
+/*
 void build_axe(strength *&status){
 	if (status->loc_x == 0 && status->loc_y == 0){ 
         if (status->Wood < (wood2axe + wood2axe*status->Axe)){
@@ -75,6 +84,9 @@ void build_axe(strength *&status){
        	cout << "Not at Home !!! " << endl;
     }
 }
+*/
+
+/*
 void refresh_map(strength *&status, map *&node){
   if (status->loc_x == 0 && status->loc_y == 0 && status->Food >= 20){
         generate_map(node);
@@ -87,6 +99,9 @@ void refresh_map(strength *&status, map *&node){
     }
 
 }
+*/
+
+/*
 void eat_food(strength *&status){
 	if (status->Food > 0){
         status->Food--;
@@ -96,6 +111,9 @@ void eat_food(strength *&status){
 	   	cout << "No more Food !!! " << endl;
 	}
 }
+*/
+
+/*
 void navigate(strength *&s){
     int x,y;	
     char temp;
@@ -113,6 +131,9 @@ void navigate(strength *&s){
 		s->loc_x = x; s->loc_y = y;
 	}
 }
+*/
+
+/*
 void show_map(map *&a, strength *s,bool &input_correct_command){
 	cout << endl << " ";
 	for (int k=0;k<MAPSIZE;k++) cout << setw(4) << k;
@@ -143,6 +164,7 @@ void show_map(map *&a, strength *s,bool &input_correct_command){
   	input_correct_command = true;	
 	cout << "Input>  " ;
 }
+*/
 
 void gather(map *&node, strength *&status){
 	if (node[status->loc_x*MAPSIZE+status->loc_y].resources == 'F') {
@@ -369,6 +391,8 @@ if (newgame){
 	            break;
 	  default:
              	 input_correct_command = false;
+		 cout << "Invalid input!" << endl;
+		 display_help();
 		    break;
     } // case loop
     if (status->Stamina <=0){
