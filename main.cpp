@@ -216,7 +216,7 @@ void display_help(){
 
 void display_introduction (bool &newgame){
   cout << endl;
-  cout << "You are on gets caught the plane in a storm and crashes into Ocean." << endl;
+  cout << "The plane you are on gets caught in a storm and crashes into ocean." << endl;
   cout << "You are only survivor and washes up on an uninhabited island. " << endl;
   cout << "You can collect food and wood in this uninhabited island. " << endl;
   cout << "You need to find sufficient food to sustain stamina" << endl;
