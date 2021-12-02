@@ -133,11 +133,11 @@ void show_map(map *&a, strength *s,bool &input_correct_command){
     cout << "Food(" << setfill(' ') << setw(4) <<  s->Food << ")  ";
     
 	cout << endl;   
+	cout << "'*' = You are here, 'H' = Home, 'W' = location of Woods, 'F' = location of food " <<endl;
 	if (!input_correct_command){
     		cout << "Please type valid command. The command list can be displayed through input '?'" << endl;
   	}
   	input_correct_command = true;	
-	cout << "'*' = You are here, 'H' = Home, 'W' = location of Woods, 'F' = location of food " <<endl;
 	cout << "Input>  " ;
 }
 
