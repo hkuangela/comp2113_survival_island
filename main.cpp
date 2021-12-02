@@ -72,10 +72,17 @@ void build_axe(strength *&status){
        	cout << "Not at Home !!! " << endl;
     }
 }
-void refresh_map(strength *&status){
-	status->Food-=20;
-	status->Food <= 0 ? status->Food=0: status->Food;
-	cout << status->Food << endl;
+void refresh_map(strength *&status, map *&node){
+  if (status->loc_x == 0 && status->loc_y == 0 && status->Food >= 20){
+        generate_map(node);
+        status->Food-=20;
+        status->Food <= 0 ? status->Food=0: status->Food;
+        cout << status->Food << endl;
+
+    } else {
+       	cout << "Not at Home !!! " << endl;
+    }
+
 }
 void eat_food(strength *&status){
 	if (status->Food > 0){
@@ -268,7 +275,7 @@ if (newgame){
 	            eat_food(status);
 				break;
 	  case 'r' : // refresh_map
-	            refresh_map(status);
+	            refresh_map(status, node);
 	  			break;
 	  case 'q' : // quit
 	  			quit=true;	  			
