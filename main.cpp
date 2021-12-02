@@ -141,6 +141,53 @@ void gather(map *&node, strength *&status){
 	   	node[status->loc_x*MAPSIZE+status->loc_y].resources_amount = 0;
 	} 
 }
+
+
+
+
+
+void burn_wood(strength *&status, bool &quit){
+	if (status->loc_x == 0 && status->loc_y == 0){
+        if (status->Wood < (500)){
+           	cout << "Not enough Wood !!! At least 500 Wood required" << endl;
+        } else {
+            int num_1;
+            int num_2;
+            if (status->Wood <= (1000))
+            {
+              srand(time(NULL));
+              num_1 = rand() % 100;
+              num_2 = rand() % 100;
+            }
+            else if (status->Wood <= (5000))
+            {
+              srand(time(NULL));
+              num_1 = rand() % 10;
+              num_2 = rand() % 10;
+            }
+            else if (status->Wood > (5000))
+            {
+              srand(time(NULL));
+              num_1 = rand() % 2;
+              num_2 = rand() % 2;
+            }
+            if (num_1 == num_2){
+            cout << "Congratulation, you are rescued" << endl;
+            quit=true;
+            }
+            else{
+           	status->Wood = 0;
+            cout << "Unfortunately, you are not rescued" << endl;
+            }
+           	status->Box++;
+        }
+    } else {
+       	cout << "Not at Home !!! " << endl;
+    }
+}
+
+
+
 void display_help(){
     cout << endl;
 	cout << "? ... help " << endl;
@@ -185,8 +232,9 @@ int main(){
 	  case 'g' : // gather
 	            gather(node,status);
 	  			break;
-	  case 'w' : // burn_wood
-	  			break;
+	  case 'w' : // burn_wood       //done
+             		 burn_wood(status, quit);
+	  			break;		    
 	  case 'e' : // eat_food
 	            eat_food(status);
 				break;
