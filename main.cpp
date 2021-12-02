@@ -203,6 +203,27 @@ void display_help(){
 	cout << setfill('=') << setw(70) << "=" << endl;
 	cout << setfill(' ');	
 }
+
+void display_introduction (bool &newgame){
+  cout << endl;
+  cout << "You are on gets caught the plane in a storm and crashes into Ocean." << endl;
+  cout << "You are only survivor and washes up on an uninhabited island. " << endl;
+  cout << "You can collect food and wood in this uninhabited island. " << endl;
+  cout << "You need to find sufficient food to sustain stamina" << endl;
+  cout << "You also can built box and axe for collect more food and wood by using wood" << endl;
+  cout << "In this game, you also need to try to signal a passing ship by burnt wood" << endl;
+  cout << "The probability of rescue depend on the number of wood burnt" << endl;
+  cout << "Tip: There are three level of probability of rescue." << endl;
+  cout << "High: woods > 5000, Medium: 1000 < woods <=5000, low: 1000 <=woods" << endl;
+  cout << "You can refresh the map by paying 20 Food" << endl;
+  cout << "You can obtain help by iuput '?'" << endl;  
+  cout << "Good Luck!!!" << endl;
+  cout << setfill('=') << setw(70) << "=" << endl;
+  cout << setfill(' ');
+  newgame = false;
+}
+
+
 int main(){
   // mapping of 2D to 1D array
   // node[row][col] == node[row*MAPSIZE + col]
@@ -210,10 +231,17 @@ int main(){
   //map *node = new map[MAPSIZE][MAPSIZE];
   strength *status = new strength();
   bool win, quit = false;
+  bool newgame = true;
   char input;
   int temp, required;
   generate_map(node);
   default_strength(status);
+if (newgame){
+    display_introduction (newgame);
+  }
+
+
+
   while (!quit){
     show_map(node, status);	
     cin >> input;
