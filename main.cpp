@@ -6,6 +6,8 @@
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
+#include "display_help.h"
+#include "display_introduction.h"
 using namespace std;
 
 const int filenamesize=80;
@@ -215,7 +217,6 @@ void burn_wood(strength *&status, bool &quit){
            	status->Wood = 0;
             cout << "Unfortunately, you are not rescued" << endl;
             }
-           	status->Box++;
         }
     } else {
        	cout << "Not at Home !!! " << endl;
@@ -224,22 +225,6 @@ void burn_wood(strength *&status, bool &quit){
 
 
 
-void display_help(){
-    cout << endl;
-	cout << "? ... help " << endl;
-	cout << "b ... build a box" << endl;
-	cout << "a ... make an axe" << endl;
-	cout << "n ... nagviate" << endl;
-	cout << "g ... gather wood or food" << endl;
-	cout << "w ... burn wood" << endl;
-	cout << "e ... eat food" << endl;
-	cout << "r ... refresh map" << endl;
-	cout << "i ... input file" << endl;
-	cout << "s ... save to file" << endl;
-	cout << "q ... quit" << endl;
-	cout << setfill('=') << setw(70) << "=" << endl;
-	cout << setfill(' ');	
-}
 void save2file(string &ofile,map *&node, strength *&status){
 	ofstream fout;
 	fout.open(ofile,ios::ate);
@@ -306,25 +291,6 @@ void file2map(string &ifile,map *&node, strength *&status){
 
 
 
-
-void display_introduction (bool &newgame){
-  cout << endl;
-  cout << "The plane you are on gets caught in a storm and crashes into ocean." << endl;
-  cout << "You are only survivor and washes up on an uninhabited island. " << endl;
-  cout << "You can collect food and wood in this uninhabited island. " << endl;
-  cout << "You need to find sufficient food to sustain stamina" << endl;
-  cout << "You also can built box and axe for collect more food and wood by using wood" << endl;
-  cout << "In this game, you also need to try to signal a passing ship by burnt wood" << endl;
-  cout << "The probability of rescue depend on the number of wood burnt" << endl;
-  cout << "Tip: There are three level of probability of rescue." << endl;
-  cout << "High: woods > 5000, Medium: 1000 < woods <=5000, low: 1000 <=woods" << endl;
-  cout << "You can refresh the map by paying 20 Food" << endl;
-  cout << "You can iuput '?' to obtain the command list" << endl;
-  cout << "Good Luck!!!" << endl;
-  cout << setfill('=') << setw(70) << "=" << endl;
-  cout << setfill(' ');
-  newgame = false;
-}
 
 
 int main(){
