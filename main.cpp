@@ -19,7 +19,7 @@ struct map{
 
 };
 struct strength{
-  int Box,Axe,Wood,Food,Stamina,Smoke,loc_x,loc_y=0;	
+  int Box,Axe,Wood,Food,Stamina,loc_x,loc_y=0;	
 };
 
 void default_strength(strength *&s){
@@ -124,7 +124,6 @@ void show_map(map *&a, strength *s){
     cout << "Axe(" << setfill(' ') << setw(4) <<  s->Axe << ")  "; 
     cout << "Wood(" << setfill(' ') << setw(4) <<  s->Wood << ")  "; 
     cout << "Food(" << setfill(' ') << setw(4) <<  s->Food << ")  ";
-	cout << "Smoke(" << setfill(' ') << setw(4) <<  s->Smoke << ")  ";  
     
 	cout << endl;   
 	cout << "Input>  " ;
