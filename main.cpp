@@ -10,11 +10,7 @@
 #include "display_introduction.h"
 using namespace std;
 
-const int filenamesize=80;
-const int MAPSIZE = 10;
-const int MAX_Stamina = 100;
-const int wood2box = 50;
-const int wood2axe = 30;
+
 // location of player
 //int loc_x, loc_y = 0;
 struct map{
