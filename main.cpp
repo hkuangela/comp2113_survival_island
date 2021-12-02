@@ -225,7 +225,7 @@ void save2file(string &ofile,map *&node, strength *&status){
 		cout << "Error in opening " << ofile << endl;
 	} else {
 	
-	  fout<<status->Box<<" "<<status->Axe<<" "<<status->Wood<<" "<<status->Food<<" "<<status->Stamina<<" "<<status->Smoke<<" "<<status->loc_x<<" "<<status->loc_y<<endl;
+	  fout<<status->Box<<" "<<status->Axe<<" "<<status->Wood<<" "<<status->Food<<" "<<status->Stamina<<" "<<status->loc_x<<" "<<status->loc_y<<endl;
       for (int i=0;i<MAPSIZE;i++){
 		for (int j=0;j<MAPSIZE;j++){
 			node[i*MAPSIZE+j].resources == ' ' ? fout << "* " : fout << node[i*MAPSIZE+j].resources << " ";
@@ -260,8 +260,8 @@ void file2map(string &ifile,map *&node, strength *&status){
 	} else {
 		getline(fin, line);
 		istringstream sdata(line);
-		//Box,Axe,Wood,Food,Stamina,Smoke,loc_x,loc_y=0;
-		sdata>>status->Box>>status->Axe>>status->Wood>>status->Food>>status->Stamina>>status->Smoke>>status->loc_x>>status->loc_y;
+		//Box,Axe,Wood,Food,Stamina,loc_x,loc_y=0;
+		sdata>>status->Box>>status->Axe>>status->Wood>>status->Food>>status->Stamina>>status->loc_x>>status->loc_y;
 		for (int i=0; i<MAPSIZE;i++){
             getline(fin, line);
 			istringstream sdata(line);
