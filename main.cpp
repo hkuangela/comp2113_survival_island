@@ -103,7 +103,7 @@ void navigate(strength *&s){
 		s->loc_x = x; s->loc_y = y;
 	}
 }
-void show_map(map *&a, strength *s){
+void show_map(map *&a, strength *s,bool &input_correct_command){
 	cout << endl << " ";
 	for (int k=0;k<MAPSIZE;k++) cout << setw(4) << k;
 	cout << endl;
@@ -126,6 +126,10 @@ void show_map(map *&a, strength *s){
     cout << "Food(" << setfill(' ') << setw(4) <<  s->Food << ")  ";
     
 	cout << endl;   
+	if (!input_correct_command){
+    		cout << "Please type valid command. The command list can be displayed through input '?'" << endl;
+  	}
+  	input_correct_command = true;	
 	cout << "Input>  " ;
 }
 
@@ -230,6 +234,7 @@ int main(){
   strength *status = new strength();
   bool win, quit = false;
   bool newgame = true;
+  bool input_correct_command = true;
   char input;
   int temp, required;
   generate_map(node);
@@ -241,7 +246,7 @@ if (newgame){
 
 
   while (!quit){
-    show_map(node, status);	
+    show_map(node, status,input_correct_command);	
     cin >> input;
     switch (input){
       case 'b': // build_box
@@ -271,7 +276,7 @@ if (newgame){
 	  case '?': display_help();
 	            break;
 	  default:
-        	cout << "Please type valid command. The command list can be displayed through input '?'" << endl;		    
+             	 input_correct_command = false;
 		    break;
     } // case loop
     if (status->Stamina <=0){
