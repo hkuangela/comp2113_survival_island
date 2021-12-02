@@ -131,9 +131,8 @@ List of variables stored as static memory:
 4. Number of *Box*es
 5. The location of player
 6. The amount of *Gather*ed in each location
-7. The height of distress signal
-8. Storage capacity at home
-9. Storage capacity during a trip
+7. Number of *Food*
+8. Number of *Wood*
 
 Only one array is stored as dynamic memory. The heights of the distress signal are stored in a 1-D double array. 
 
