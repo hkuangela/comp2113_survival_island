@@ -190,7 +190,6 @@ void burn_wood(strength *&status, bool &quit){
 void display_help(){
     cout << endl;
 	cout << "? ... help " << endl;
-	cout << "c ... generate a new map" << endl;
 	cout << "b ... build a box" << endl;
 	cout << "a ... make an axe" << endl;
 	cout << "n ... nagviate" << endl;
@@ -245,8 +244,6 @@ if (newgame){
     show_map(node, status);	
     cin >> input;
     switch (input){
-      case 'c': generate_map(node);
-                break;
       case 'b': // build_box
                 build_box(status);
                 break;
