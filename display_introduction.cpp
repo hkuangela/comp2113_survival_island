@@ -1,4 +1,8 @@
-//display_introduction.cpp
+//Chow Cheuk Ying | UID: 3035565140 | BEng(CivE) Year 4
+//Cheung Wang | UID: 3035570949 | BEng(CivE) Year 4
+//Description: Main program for starting the game.
+// Last Changed: Ded 3, 2021
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -11,6 +15,9 @@
 using namespace std;
 
 
+//Function called when the player start the games
+// Provided basics information
+// Achieved the Code Requirement Task 5: Program codes in multiple files
 void display_introduction (bool &newgame){
   cout << endl;
   cout << "The plane you are on gets caught in a storm and crashes into ocean." << endl;
