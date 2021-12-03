@@ -154,3 +154,10 @@ Only one file with the player's progress is stored, changed and read by the prog
 6. build_axe: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Axe*s the player has. 
 7. use_axe: It subtracts an amount of *Axe*s from the player’s *Axe*s storage and multiplies the amount of *Food* and *Wood* collected. 
 8. burn_wood: It subtracts an amount of *Wood* from the player’s storage and increases the height of the smoke. 
+
+## 4. Non-standard C/C++ library
+No non-standard library will be used in this program.
+
+
+## 5. Compilation for the program
+The player can download the whole folder and  Run the excutable if applicable by runing program makefile. 
