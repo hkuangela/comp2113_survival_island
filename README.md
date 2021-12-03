@@ -126,8 +126,7 @@ The heights of the distress signal are recorded and stored in a dynamic 1-D doub
 
 
 ### 3.3. Dynamic memory management
-Most variables and arrays used are stored as static memory. The list of static variables are as follows: 
-List of variables stored as static memory:
+Most variables and arrays used are stored in struct and shown in following list:
 1. Map
 2. Stamina
 3. Number of *Axe*s
@@ -136,10 +135,10 @@ List of variables stored as static memory:
 6. The amount of *Gather*ed in each location
 7. Number of *Food*
 8. Number of *Wood*
-These datas are saved in strength struct, which are static. This means the memory will be allocated, declared and released once the data is out of scope. The player can save the games progress in the external text file permanently until they save the new progress in the same username.
+Since the status of the player will be changed during the whole whole. 
 
-
-Only one array is stored as dynamic memory. The heights of the distress signal are stored in a 1-D double array. 
+Although these datas are saved in strength static struct, the status of the player will be changed and map will be generated a new one under the player's command. This means the the this data will be stored in a dynamic array. Once the data is out of scope, the memory will be allocated, declared and released. The player can save the games progress in the external text file permanently until they save the new progress in the same username.
+ 
 
 
 ### 3.4. File input/output
