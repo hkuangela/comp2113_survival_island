@@ -126,35 +126,29 @@ The heights of the distress signal are recorded and stored in a dynamic 1-D doub
 
 
 ### 3.3. Dynamic memory management
-Most variables and arrays used are stored in struct and shown in following list:
-1. Map
-2. Stamina
-3. Number of *Axe*s
-4. Number of *Box*es
-5. The location of player
-6. The amount of *Gather*ed in each location
-7. Number of *Food*
-8. Number of *Wood*
-Since the status of the player will be changed during the whole whole. 
+The following data are stored dynamically during the execution of the program
+1. Nodes of Map
+2. Player's status
+  2.1. Stamina
+  2.2. Number of *Axe*s
+  2.3. Number of *Box*es
+  2.4. The location of player
+  2.5. Number of *Food*
+  2.6. Number of *Wood*
 
-Although these datas are saved in strength static struct, the status of the player will be changed and map will be generated a new one under the player's command. This means the the this data will be stored in a dynamic array. Once the data is out of scope, the memory will be allocated, declared and released. The player can save the games progress in the external text file permanently until they save the new progress in the same username.
+Although these information are stored in strength static struct, the status of the player will be changed and map will be generated a new one under the player's command. This means the the this data will be stored in a dynamic array. Once the data is out of scope, the memory will be allocated, declared and released. The player can save the games progress in the external text file permanently until they save the new progress in the same username.
  
 
 
 ### 3.4. File input/output
-Only one file with the player's progress is stored, changed and read by the program. The game_saving.txt file is used to save the player’s status, the map (including the paths and locations of resources) and the amount of resources at each location. The progress is saved every time the player exits the game. The player can return to the saved progress when the player continues the game. The file game_saving.txt will be read if the player chooses to continue his/her progress. The original progress will be overwritten when the player saves a new progress. 
+Only one file with the player's progress is stored, changed and read by the program. The [name_of_player].txt file is used to save the player’s status, where [name_of_player] is the name the player set for themselves at the beginning of the game, the map (including the paths and locations of resources) and the amount of resources at each location. The progress is saved every time the player exits the game. The player can return to the saved progress when the player continues the game. The file [name_of_player].txt will be read if the player chooses to continue his/her progress. The original progress will be overwritten when the player saves a new progress. 
 
 
 ### 3.5. Program codes in multiple files
-
-1. initiate_map: Locations of *Food* and *Wood*, amounts of *Food* and *Wood*, and paths are generated. 
-2. walk: It moves the location of the player from one point to another.
-3. gather: It subtracts the amount of *Food* and *Wood* collected at each node. It also prompts the player to use *Axe*s can call the use_axe function below.
-4. refresh: Amounts of *Food* and *Wood* at each node are generated. 
-5. build_box: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Box*es the player has. 
-6. build_axe: It subtracts an amount of *Wood* from the player’s storage and increases the number of *Axe*s the player has. 
-7. use_axe: It subtracts an amount of *Axe*s from the player’s *Axe*s storage and multiplies the amount of *Food* and *Wood* collected. 
-8. burn_wood: It subtracts an amount of *Wood* from the player’s storage and increases the height of the smoke. 
+1. main.cpp: this program include the main() of the program. 
+2. display_help.cpp: this function display the Help message when "?" is inputted. 
+3. display_introduction.cpp: this function display the introduction of the code. 
+4. Makefile: The Makefile compile the programs and generate executables. 
 
 ## 4. Non-standard C/C++ library
 No non-standard library is used in this program.
