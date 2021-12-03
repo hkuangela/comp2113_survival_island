@@ -14,9 +14,9 @@ Our text-based game is a single-player game called *Survival Island*. The primar
 The player is stranded on a deserted island. To survive, the player needs to find *Food* on the island; to win the game, the player needs to *gather* enough *Wood* and *Burn* them to produce smoke which acts as a distress signal. The more the *Wood* *burn*t, the higher the smoke reaches, and thus the larger the probability is for the player to be seen and rescued by ships passing nearby. 
 
 ## 2. General game mechanism
-When the game starts, the player is at *Home* and has 100/100 *Stamina* and 50 *Food* units. A 2-D map showing the player’s position and the locations *Food* and *Wood* on the island are displayed, while the amounts are only shown when the player reaches their locations. The player can *Navigate* through the map to nodes with *Food* and *Wood* to *Gather* these resources. The player can then bring the *Gather*ed resources back *Home*. With each trip, the player can only carry a certain amount of resources. To  increase the amount of resources that can be carried per trip, the player can *Build* wooden *Boxes*. The player can also *Make* *Axes* and spend them to multiply resources when *Gather*ing them. 
+When the game starts, the player is at *Home* and has 100/100 *Stamina* and 100 *Food* units. A 2-D map showing the player’s position and the locations *Food* and *Wood* on the island are displayed, while the amounts are only shown when the player reaches their locations. The player can *Navigate* through the map to nodes with *Food* and *Wood* to *Gather* these resources. To  increase the amount of resources that can be carried per trip, the player can *Build* wooden *Boxes*. The player can also *Make* *Axes* and spend them to multiply resources when *Gather*ing them. 
 
-When the accumulated amount of *Wood* reaches a threshold, the player can start *Build*ing a distress signal by *Burn*ing *Wood*. To replenish the resources on the map and the player’s *Stamina*, the player can donate 20 *Food* to refresh the map, which is equivalent to getting sleep and starting a new day, such that new amounts of resources are generated at each resource node. 
+When the accumulated amount of *Wood* reaches a threshold,at least 500 *Wood*, the player can start *Build*ing a distress signal by *Burn*ing *Wood*. To replenish the resources on the map and the player’s *Stamina*, the player can donate 20 *Food* to refresh the map, which is equivalent to getting sleep and starting a new day, such that new amounts of resources are generated at each resource node. 
 
 ### 2.1. Rules
 1. The maximum *Stamina* is 100. When *Stamina* is smaller or equal to 0. The player loses and the game ends. 
@@ -28,9 +28,10 @@ When the accumulated amount of *Wood* reaches a threshold, the player can start 
 7. *Wood* can be used to *Build* *Box*es. *Box*es increases the amount of resources that the player can carry each trip. *Box*es will not be consumed. 
 8. *Wood* can be used to *Build* *Axe*s. *Axe*s increases the amount of resources available at each node. *Axe*s are consumed each time they are used. 
 9. *Wood* can be *Burn*t to *Build* a distress signal. The more the *Wood* used, the higher the smoke reaches, the higher the probability the player will be noticed and rescued by passing ships. 
-10. The player wins when the player is noticed and rescued by passing ships. 
-11. The amounts of *Food* and *Wood* at each node can be *Refresh*ed by donating 20 *Food*. 
-12. The player can only *Build* *Box*es and *Axe*s and *Burn* *Wood* when the player is at *Home*.  *Navigate*, *Eat*, *Gather* can be done at all nodes. 
+10. Probability of rescued: High: woods > 5000, Medium: 1000 < woods <=5000, low: 1000 <=woods
+11. The player wins when the player is noticed and rescued by passing ships. 
+12. The amounts of *Food* and *Wood* at each node can be *Refresh*ed by donating 20 *Food*. 
+13. The player can only *Build* *Box*es and *Axe*s and *Burn* *Wood* when the player is at *Home*.  *Navigate*, *Eat*, *Gather* can be done at all nodes. 
 
 ### 2.2. Exchange rates
 1. 1 *Stamina* = 1 *Food* 
@@ -61,13 +62,12 @@ The player can use *Wood* to upgrade the level of the *Box*. The higher level of
 
 6. *Build axe*
 The player can use *Wood* to *Build* *Axe*s. *Build*ing each marginal *Axe* requires more *Wood*. The amount of *Wood* required to *build* each marginal *Axe* are calculated by the following equation.
-> Amount of *Wood* required = 30 + 30 * (number of *Axe*s the player has)
+> Amount of *Wood* required = 30 + 30 * (number of *Axe*s the player has) 
 
-7. *Use axe*
-*Axe*s can only be used once. The number of *Axe*s stored as integer variable and used will be subtracted from the user’s storage once they are used.  
+7. *Burn*
+The player can *Burn* *Wood* to produce a distress signal. A boolean variable stores a value that indicates whether the player is successfully rescued or not.
 
-8. *Burn*
-The player can *Burn* *Wood* to produce a distress signal. A boolean variable stores a value that indicates whether the player is successfully rescued or not. 
+
 
 
 ## 3. Features
