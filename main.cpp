@@ -1,3 +1,9 @@
+//Chow Cheuk Ying | UID: 3035565140 | BEng(CivE) Year 4
+//Cheung Wang | UID: 3035570949 | BEng(CivE) Year 4
+//Description: Main program for starting the game.
+// Last Changed: Ded 3, 2021
+
+// "display_help.h" and "display_introduction.h" are others two proram about information of the games.
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -8,29 +14,39 @@
 #include <sstream>
 #include "display_help.h"
 #include "display_introduction.h"
+#include <time.h>
 using namespace std;
 
+
+
+// Define the gobel the variable, include the size of the island and the basics setting.
 const int filenamesize=80;
 const int MAPSIZE = 10;
 const int MAX_Stamina = 100;
 const int wood2box = 50;
 const int wood2axe = 30;
-// location of player
-//int loc_x, loc_y = 0;
-struct map
-{
-//  char path = 0;
-	char resources =0;
-	int resources_amount = 0;
 
+// Storage the data about the resoures
+// Achieved the Code Requirement Task 2: Data structures for storing game status
+struct map{
+char resources =0;
+int resources_amount = 0;
 };
+
+
+// Storage the data about the players in the games
+// Achieved the Code Requirement Task 2: Data structures for storing game status
 struct strength{
-  int Box,Axe,Wood,Food,Stamina,loc_x,loc_y=0;	
+  int Box,Axe,Wood,Food,Stamina,loc_x,loc_y=0;
 };
+
+//Function called when the status of players is changed in the games
 
 void default_strength(strength *&s){
 	s->Food=100; s->Stamina=100; s->Wood=100;s->loc_x=s->loc_y=0;
 }
+
+
 
 /*
 void generate_map(map *&a){
