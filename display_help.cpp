@@ -1,4 +1,8 @@
-//display_help.cpp
+//Chow Cheuk Ying | UID: 3035565140 | BEng(CivE) Year 4
+//Cheung Wang | UID: 3035570949 | BEng(CivE) Year 4
+//Description: Main program for starting the game.
+// Last Changed: Ded 3, 2021
+
 #include <iostream>
 #include <cmath>
 #include <iomanip>
@@ -10,6 +14,9 @@
 #include "display_help.h"
 using namespace std;
 
+
+//Function called when the player want to know the command in this game.
+// Achieved the Code Requirement Task 5: Program codes in multiple files
 
 void display_help(){
     cout << endl;
