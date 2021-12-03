@@ -14,7 +14,6 @@
 #include <sstream>
 #include "display_help.h"
 #include "display_introduction.h"
-#include <time.h>
 using namespace std;
 
 
