@@ -136,6 +136,8 @@ List of variables stored as static memory:
 6. The amount of *Gather*ed in each location
 7. Number of *Food*
 8. Number of *Wood*
+These datas are saved in strength struct, which are static. This means the memory will be allocated, declared and released once the data is out of scope. The player can save the games progress in the external text file permanently until they save the new progress in the same username.
+
 
 Only one array is stored as dynamic memory. The heights of the distress signal are stored in a 1-D double array. 
 
