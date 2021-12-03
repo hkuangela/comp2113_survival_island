@@ -67,8 +67,11 @@ The player can use *Wood* to *Build* *Axe*s. *Build*ing each marginal *Axe* requ
 7. *Burn*
 The player can *Burn* *Wood* to produce a distress signal. A boolean variable stores a value that indicates whether the player is successfully rescued or not.
 
+9.*Save the progress*
+The player may not finised the game at once. They can save their progress in the games through set their own username.
 
-
+9.*Input the progress*
+The player can countinue their games at the saving point through recall their username. The saving point will be changed if they save their new progress.
 
 ## 3. Features
 Features 1-5 are described below. 
