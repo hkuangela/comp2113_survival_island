@@ -157,8 +157,11 @@ Only one file with the player's progress is stored, changed and read by the prog
 8. burn_wood: It subtracts an amount of *Wood* from the player’s storage and increases the height of the smoke. 
 
 ## 4. Non-standard C/C++ library
-No non-standard library will be used in this program.
+No non-standard library is used in this program.
 
 
 ## 5. Compilation for the program
-The player can download the whole folder and  Run the excutable if applicable by runing program makefile. 
+To compile the program, please follow the instructions below: 
+1. Download the whole folder. 
+2. Input "make main" to make the executable.
+3. Input "./main" to run the excutable.
